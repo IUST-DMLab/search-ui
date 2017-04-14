@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app='kgui'>
+
+<head>
+    <title>Knowledge Graph</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../node_modules/angular-sanitize/angular-sanitize.js"></script>
+
+    <script type="text/javascript" src="../libs/jquery.growl/javascripts/jquery.growl.js"></script>
+    <link rel="stylesheet" type="text/css" href="../libs/jquery.growl/stylesheets/jquery.growl.css">
+
+    <script type="text/javascript" src="../node_modules/ng-tags-input/build/ng-tags-input.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/ng-tags-input/build/ng-tags-input.min.css">
+
+    <script type="text/javascript" src="../node_modules/underscore/underscore.js"></script>
+
+    <script type="text/javascript" src="../node_modules/angular-auto-complete/angular-auto-complete.js"></script>
+    <link rel="stylesheet" href="../node_modules/angular-auto-complete/angular-auto-complete.css"/>
+
+    <script type="text/javascript" src="../node_modules/angular-paging/dist/paging.min.js"></script>
+
+    <script type="text/javascript" src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="../scripts/app/app.js"></script>
+    <script type="text/javascript" src="../scripts/app/service/rest.js"></script>
+    <script type="text/javascript" src="../scripts/app/controller/main.js"></script>
+
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body ng-controller="MainController">
+
+<br/>
+
+<div class="text-center">
+    <form ng-submit="go()" class="form-inline">
+        <label>Ã” ÃÊ</label>
+        <input type="text" class="input" ng-model="filter.keyword" placeholder="" style="width: 300px;"/>
+    </form>
+</div>
+
+<br/>
+
+<div ng-if="data" class="container">
+
+    <div>
+        <ul class="breadcrumb" ng-if="data.breadcrumb.length">
+            <li ng-repeat="item in data.breadcrumb">{{item}}</li>
+        </ul>
+
+        <div ng-repeat="entity in data.entities" class="entity">
+            <div>
+                <a href="{{entity.link}}" class="title">{{entity.title}}</a>
+            </div>
+            <div>
+                <span class="subtitle">{{entity.subtitle}}</span>
+            </div>
+            <div>
+                <span class="description">{{entity.description}}</span>
+            </div>
+            <div>
+                <div ng-repeat="photo in entity.photoUrls" class="image-container">
+                    <img src="{{photo}}" width="200px">
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div>
+                <div ng-repeat="(key, value) in entity.keyValues">
+                    <span class="key">{{key}}: </span>
+                    <span ng-repeat="item in value.values">
+                        <a class="value" ng-if="item.link" ng-href="{{item.link}}">{{item.string}}</a><span
+                            class="value" ng-if="!item.link">{{item.string}}</span><span ng-if="!$last">°</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+
+</html>
