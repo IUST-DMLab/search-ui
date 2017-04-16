@@ -1,15 +1,31 @@
-app.controller('MainController', function ($scope, $timeout, RestService) {
+app.controller('MainController', function ($scope, $location, $routeParams, RestService) {
     $scope.filter = {};
     $scope.go = go;
+    $scope.load = load;
 
-    function go() {
-
-        RestService.searcher($scope.filter.keyword)
-            .success(function (data) {
-                $scope.data = data;
-            });
+    var keyword = getParameterByName('keyword');
+    //console.log(keyword);
+    if (keyword) {
+        load(keyword);
     }
 
+    function go() {
+        var kw = $scope.filter.keyword;
+        //console.log('go : ', kw);
+        if (kw) {
+            $location.url('/?keyword=' + kw);
+            load(kw);
+        }
+    }
+
+    function load(kw) {
+        kw = kw || getParameterByName('keyword');
+        RestService.searcher(kw)
+            .success(function (data) {
+                $scope.data = data;
+                $scope.filter.keyword = kw;
+            });
+    }
 });
 
 

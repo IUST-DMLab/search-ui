@@ -1,5 +1,5 @@
 app.service('RestService', ['$http', function ($http) {
-    var baseURl = 'http://194.225.227.161:8092';
+    var baseURl = 'http://194.225.227.161:8093';
     var self = this;
     this.ingoing = 0;
 
@@ -38,6 +38,18 @@ app.service('RestService', ['$http', function ($http) {
         self.ingoing++;
         return $http.post(url, data).error(handelError).success(handelSuccess);
     }
+
+
+    /**/
+
+    this.translate = function (keyword) {
+        var req = {
+            method: 'GET',
+            url: 'http://194.225.227.161:8090/translator/rest/v1/node/' + keyword
+        };
+        //console.log(req);
+        return http(req);
+    };
 
     /**/
 
