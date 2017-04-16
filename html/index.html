@@ -36,8 +36,7 @@
 </head>
 
 <body ng-controller="MainController">
-
-<br/>
+<div ng-include="'templates/header.html'"></div>
 
 <div class="text-center">
     <form ng-submit="go()" class="form-inline">
@@ -48,7 +47,7 @@
 
 <br/>
 
-<div ng-if="data" class="container">
+<div ng-if="data" class="container" style="min-height: 400px;">
 
     <div>
         <ul class="breadcrumb" ng-if="data.breadcrumb.length">
@@ -57,10 +56,10 @@
 
         <div ng-repeat="entity in data.entities" class="entity">
             <div>
-                <a href="{{entity.link}}" class="title">{{entity.title}}</a>
+                <a href="{{entity.link | triple}}" class="title">{{entity.title}}</a>
             </div>
             <div>
-                <span class="subtitle">{{entity.subtitle | translate}}</span>
+                <span class="subtitle">{{entity.subtitle}}</span>
             </div>
             <div>
                 <span class="description">{{entity.description}}</span>
@@ -85,6 +84,8 @@
 
 
 </div>
+
+<div ng-include="'templates/footer.html'"></div>
 </body>
 
 </html>
