@@ -57,7 +57,7 @@ app.run(function ($rootScope, $route, $location) {
 
 app.filter('triple', function(){
     return function(subject){
-        return 'http://194.225.227.161:8091/rs/v1/triples/search?subject='+subject;
+        return 'http://194.225.227.161/mapping/html/triple.html?subject='+subject;
     };
 });
 
