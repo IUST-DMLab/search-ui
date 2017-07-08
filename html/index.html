@@ -47,7 +47,7 @@
 
 <br/>
 
-<div ng-if="data" class="container" style="min-height: 400px;">
+<div ng-if="data.entities.length" class="container" id="body">
 
     <div>
         <ul class="breadcrumb" ng-if="data.breadcrumb.length">
@@ -56,7 +56,7 @@
 
         <div ng-repeat="entity in data.entities" class="entity">
             <div>
-                <a href="{{entity.link | triple}}" class="title">{{entity.title}}</a>
+                <a href="{{entity.link}}" class="title">{{entity.title}}</a>
             </div>
             <div>
                 <span class="subtitle">{{entity.subtitle}}</span>

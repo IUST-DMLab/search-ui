@@ -55,11 +55,11 @@ app.run(function ($rootScope, $route, $location) {
     });
 });
 
-app.filter('triple', function(){
-    return function(subject){
-        return 'http://194.225.227.161/mapping/html/triple.html?subject='+subject;
-    };
-});
+// app.filter('triple', function(){
+//     return function(subject){
+//         return 'http://194.225.227.161/mapping/html/triple.html?subject='+subject;
+//     };
+// });
 
 var OUC = {
     isEmpty: function (obj) {
