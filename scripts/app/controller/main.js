@@ -6,7 +6,7 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
     var keyword = getParameterByName('keyword');
     //console.log(keyword);
     if (keyword) {
-        load(keyword);
+        // load(keyword);
     }
 
     function go() {
@@ -24,6 +24,17 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
             .success(function (data) {
                 $scope.data = data;
                 $scope.filter.keyword = kw;
+
+                var groups = _.groupBy(data.entities, 'resultType');
+                var relationalResults = _.groupBy(groups['RelationalResult'], 'description');
+
+                $scope.relationalResults = relationalResults;
+                $scope.entities = groups['Entity'];
+
+                // for(var k in g){
+                //     console.log(k, g[k]);
+                // }
+
             });
     }
 });

@@ -10,50 +10,69 @@ body {
 }
 
 .entity {
-  border: solid 1px lightgray;
+  border: solid 1px #eee;
   border-radius: 2px;
   margin: 2px 0;
   padding: 2px;
 }
 
+.entity-item {
+  margin-right: 20px;
+  float: right;
+  width:120px;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
 .title {
-  font-size: 16pt;
-  font-weight: bold;
+
+
 }
 
 .subtitle {
-  color: grey;
-  font-size: 14px;
-  font-weight: normal;
+  color: #888;
+font-size: 12px;
 }
 
 .description {
-  color: #262626;
-  font-size: 12px;
-  font-weight: normal;
+
 }
 
-.key{
-  color:#122b40;
-  font-size: 12px;
-  font-weight: bold;
+.key {
+
 }
 
-.value{
-  font-size: 12px;
-  font-weight: normal;
+.value {
+
 }
 
-.image-container{
+.image-container {
   float: right;
   margin: 10px 0 10px 10px;
-  
-  img{
+
+  img {
     border: none;
     width: 150px;
   }
 }
 
+fieldset {
+  border: solid 1px #eeeeee !important;
+  border-radius: 2px;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+
+}
+
+legend {
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+  text-align: right !important;
+  width: auto;
+  padding: 0 10px;
+  margin-bottom: 0;
+  border-bottom: none;
+}
 
 /**/
 .loading {
@@ -76,7 +95,6 @@ body {
     margin: 0 auto;
   }
 }
-
 
 #header {
   direction: rtl;
@@ -109,9 +127,9 @@ body {
   min-height: 450px;
   margin-bottom: 80px;
   padding: 10px;
-  border: solid 1px #eaeaea;
-  box-shadow: 0 0 20px 2px #eee;
-  border-radius: 4px;
+  //border: solid 1px #eaeaea;
+  //box-shadow: 0 0 20px 2px #eee;
+  //border-radius: 4px;
 }
 
 #footer {

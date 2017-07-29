@@ -21,8 +21,10 @@
     "angular-sanitize": "~1.5.9",
     "angular-ui-bootstrap": "^2.5.0",
     "bootstrap": "^3.3.7",
+    "bootstrap-rtl": "^3.3.4",
     "font-awesome": "^4.7.0",
     "jquery": "^2.2.4",
+    "lodash": "^4.17.4",
     "ng-tags-input": "^3.1.1",
     "underscore": "^1.8.3"
   }
