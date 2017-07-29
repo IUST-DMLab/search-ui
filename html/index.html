@@ -118,7 +118,14 @@
             -->
 </div>
 
-<div ng-include="'templates/footer.html'"></div>
+<br/>
+<div ng-show="data.entities.length"
+     style="padding: 10px; margin-bottom: 20px; border-top: solid 1px #aaa; text-align: center">
+    <a ng-click="showInfo=!showInfo;window.scrollTo(0,document.body.scrollHeight);" style="cursor: pointer;">درباره سیستم</a>
+</div>
+<div ng-show="!data.entities.length || showInfo" ng-include="'./templates/info.html'" style="padding: 0px; margin: 10px 40px;"></div>
+
+<!--<div ng-include="'templates/footer.html'"></div>-->
 </body>
 
 </html>
