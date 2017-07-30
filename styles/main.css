@@ -83,7 +83,7 @@ body {
 }
 .image-container {
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   background-size: cover;
   height: 150px;
   width: 150px;
