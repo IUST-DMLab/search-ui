@@ -1,19 +1,21 @@
 <div>
+    <!--<div ng-repeat="photo in entity.photoUrls[0]">-->
+        <div ng-style="entity.photoUrls.length ? {'background-image':'url({{entity.photoUrls[0]}})'} : {'background-image':'url(../styles/images/no-image-slide.webp)'}" class="image-container"></div>
+    <!--</div>-->
+</div>
+<div class="entity-title-container">
     <!--<span class="fa fa-lg fa-circle"></span>-->
-    <a href="{{entity.link}}" class="title">{{entity.title}}</a>
+    <a ng-if="entity.link" href="{{entity.link}}" class="entity-title">{{entity.title}}</a>
+    <span ng-if="!entity.link" class="entity-title">{{entity.title}}</span>
 </div>
 <div>
     <span class="subtitle">{{entity.subtitle}}</span>
 </div>
-<!--<div>-->
-<!--<span class="description">{{entity.description}}</span>-->
-<!--</div>-->
+<!--
 <div>
-    <div ng-repeat="photo in entity.photoUrls" class="image-container">
-        <img src="{{photo}}" width="200px">
-    </div>
-    <div style="clear: both;"></div>
+<span class="description">{{entity.description}}</span>
 </div>
+-->
 <div>
     <div ng-repeat="(key, value) in entity.keyValues">
         <span class="key">{{key}}: </span>

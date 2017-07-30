@@ -41,6 +41,9 @@
 .fontIRANSans-web {
   font-family: IRANSans-web !important;
 }
+/*version 1.0.0*/
+/**/
+/**/
 * {
   font-family: IRANSans-web, Sahel, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
@@ -55,23 +58,34 @@ body {
   padding: 2px;
 }
 .entity-item {
-  margin-right: 20px;
+  outline: solid 1px #ddd;
   float: right;
-  width: 120px;
-  overflow-x: hidden;
-  white-space: nowrap;
+  margin: 0 0 10px 20px;
+  height: 200px;
+  width: 150px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  -o-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+.entity-title-container {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.entity-title {
   font-size: 12px;
+  padding: 2px 5px;
 }
 .subtitle {
   color: #888;
   font-size: 12px;
+  padding: 2px 5px;
 }
 .image-container {
-  float: right;
-  margin: 10px 0 10px 10px;
-}
-.image-container img {
-  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 150px;
   width: 150px;
 }
 fieldset {
