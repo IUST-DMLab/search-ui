@@ -1,7 +1,7 @@
 <div>
     <!--<div ng-style="entity.photoUrls.length ? {'background-image':'url({{entity.photoUrls[0]}})'} : {'background-image':'url(../styles/images/no-image-slide.webp)'}"-->
     <!--class="image-container"></div>-->
-    <div ng-style="entity.photoUrls.length ? {'background-image':'url({{entity.photoUrls[0]}})'} : {}"
+    <div ng-style="entity.photoUrls.length ? {'background-image':'url(\'{{entity.photoUrls[0]}}\')'} : {}"
          class="image-container"></div>
 </div>
 <div class="entity-title-container" ng-style="entity.photoUrls.length ? {}: {'margin-top':'-80px'}">
