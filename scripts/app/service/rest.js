@@ -51,6 +51,15 @@ app.service('RestService', ['$http', function ($http) {
         return http(req);
     };
 
+    this.getEntityData = function (url) {
+        var req = {
+            method: 'GET',
+            url: 'http://dmls.iust.ac.ir:8090/entity/rest/v1/getEntityData?url=' + url
+        };
+        //console.log(req);
+        return http(req);
+    };
+
     /**/
 
     this.searcher = function (keyword) {

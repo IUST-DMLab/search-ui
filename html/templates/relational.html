@@ -1,21 +1,15 @@
 <div>
-    <!--<div ng-style="entity.photoUrls.length ? {'background-image':'url({{entity.photoUrls[0]}})'} : {'background-image':'url(../styles/images/no-image-slide.webp)'}"-->
-    <!--class="image-container"></div>-->
     <div ng-style="entity.photoUrls.length ? {'background-image':'url(\'{{entity.photoUrls[0]}}\')'} : {}"
          class="image-container"></div>
 </div>
 <div class="entity-title-container" ng-style="entity.photoUrls.length ? {}: {'margin-top':'-80px'}">
-    <a ng-if="entity.link" href="{{entity.link}}" class="entity-title">{{entity.title}}</a>
-    <span ng-if="!entity.link" class="entity-title">{{entity.title}}</span>
+    <a ng-if="entity.link" href="{{entity.link}}" class="image-title">{{entity.title}}</a>
+    <span ng-if="!entity.link" class="image-title">{{entity.title}}</span>
 </div>
 <div>
     <span class="subtitle">{{entity.subtitle}}</span>
 </div>
 <!--
-<div>
-<span class="description">{{entity.description}}</span>
-</div>
--->
 <div>
     <div ng-repeat="(key, value) in entity.keyValues">
         <span class="key">{{key}}: </span>
@@ -25,4 +19,4 @@
             <span ng-if="!$last">،</span>
         </span>
     </div>
-</div>
+</div>-->

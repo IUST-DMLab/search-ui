@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
 
     <title>Knowledge Graph</title>
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
@@ -80,54 +80,32 @@
 
         <div class="col-xs-12 col-md-4">
             <h4>موجودیت‌ها</h4>
-            <div ng-repeat="entity in entities">
-                <!--<fieldset>-->
-                <!--<legend></legend>-->
-                <div class="entity" style="background-color: #ffffeb; padding: 5px;">
-                    <div ng-include="'./templates/relational.html'"></div>
+            <div class="entities">
+                <div ng-repeat="entity in entities">
+                    <div class="entity-box">
+                        <div ng-if="entity.data" ng-include="'./templates/entity.html'"></div>
+                        <div ng-if="!entity.data" ng-include="'./templates/relational.html'"></div>
+                        <div ng-if="!entity.data">
+                            <span class="link" ng-click="loadEntity(entity)">بیشتر...</span>
+                        </div>
+                    </div>
+                    <hr ng-if="!$last" style=""/>
                 </div>
-                <!--</fieldset>-->
             </div>
         </div>
 
     </div>
 
-    <!--
-                    <div ng-repeat="entity in data.entities" class="entity">
-                        <div>
-                            <a href="{{entity.link}}" class="title">{{entity.title}}</a>
-                        </div>
-                        <div>
-                            <span class="subtitle">{{entity.subtitle}}</span>
-                        </div>
-                        <div>
-                            <span class="description">{{entity.description}}</span>
-                        </div>
-                        <div>
-                            <div ng-repeat="photo in entity.photoUrls" class="image-container">
-                                <img src="{{photo}}" width="200px">
-                            </div>
-                            <div style="clear: both;"></div>
-                        </div>
-                        <div>
-                            <div ng-repeat="(key, value) in entity.keyValues">
-                                <span class="key">{{key}}: </span>
-                                <span ng-repeat="item in value.values">
-                                    <a class="value" ng-if="item.link" ng-href="{{item.link}}">{{item.string}}</a><span
-                                        class="value" ng-if="!item.link">{{item.string}}</span><span ng-if="!$last">،</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-            -->
 </div>
 
 <br/>
 <div ng-show="data.entities.length"
      style="padding: 10px; margin-bottom: 20px; border-top: solid 1px #aaa; text-align: center">
-    <a ng-click="showInfo=!showInfo;window.scrollTo(0,document.body.scrollHeight);" style="cursor: pointer;">درباره سیستم</a>
+    <a ng-click="showInfo=!showInfo;window.scrollTo(0,document.body.scrollHeight);" style="cursor: pointer;">درباره
+        سیستم</a>
 </div>
-<div ng-show="!data.entities.length || showInfo" ng-include="'./templates/info.html'" style="padding: 0px; margin: 10px 40px;"></div>
+<div ng-show="!data.entities.length || showInfo" ng-include="'./templates/info.html'"
+     style="padding: 0px; margin: 10px 40px;"></div>
 
 <!--<div ng-include="'templates/footer.html'"></div>-->
 </body>

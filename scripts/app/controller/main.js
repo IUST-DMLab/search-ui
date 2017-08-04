@@ -28,15 +28,26 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
                 var groups = _.groupBy(data.entities, 'resultType');
                 var relationalResults = _.groupBy(groups['RelationalResult'], 'description');
 
+                var _entities = groups['Entity'];
+
+                RestService.getEntityData(_entities[0].link)
+                    .success(function (entity) {
+                        _entities[0].data = entity;
+                    });
+
                 $scope.relationalResults = relationalResults;
-                $scope.entities = groups['Entity'];
+                $scope.entities = _entities;
 
-                // for(var k in g){
-                //     console.log(k, g[k]);
-                // }
-
+                // console.log($scope.entities);
             });
     }
+
+    $scope.loadEntity = function(entity) {
+        RestService.getEntityData(entity.link)
+            .success(function (data) {
+                entity.data = data;
+            });
+    };
 });
 
 

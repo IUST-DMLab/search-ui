@@ -51,6 +51,20 @@
 body {
   direction: rtl;
 }
+.entities {
+  background-color: #ffffeb;
+}
+.entity-box {
+  padding: 5px;
+  overflow: hidden;
+}
+.image-container {
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  height: 180px;
+  width: 150px;
+}
 .entity {
   border: solid 1px #eee;
   border-radius: 2px;
@@ -61,7 +75,7 @@ body {
   outline: solid 1px #ddd;
   float: right;
   margin: 0 0 10px 20px;
-  height: 200px;
+  height: 250px;
   width: 150px;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
@@ -72,21 +86,39 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.entity-title {
+.entity-title-container .image-title {
   font-size: 12px;
-  padding: 2px 5px;
+}
+.entity-title {
+  font-size: 14px;
 }
 .subtitle {
-  color: #888;
-  font-size: 12px;
-  padding: 2px 5px;
+  color: #555;
+  font-size: 13px;
 }
-.image-container {
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-  height: 150px;
-  width: 150px;
+.abstract {
+  color: #888;
+  font-size: 13px;
+}
+.entity-property {
+  padding: 5px 5px;
+}
+.key {
+  color: #555;
+  font-size: 13px;
+  font-weight: bold;
+}
+.value {
+  color: #555;
+  font-size: 13px;
+}
+span.link {
+  color: dodgerblue;
+  cursor: pointer;
+  font-size: 11px;
+}
+span.link:hover {
+  text-decoration: underline;
 }
 fieldset {
   border: solid 1px #eeeeee !important;
@@ -105,7 +137,7 @@ legend {
 }
 /**/
 .loading {
-  position: absolute;
+  position: fixed;
   top: 10px;
   left: 0;
   right: 0;
