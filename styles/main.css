@@ -108,8 +108,11 @@ body {
   font-size: 13px;
   font-weight: bold;
 }
-.value {
+span.value {
   color: #555;
+  font-size: 13px;
+}
+a.value {
   font-size: 13px;
 }
 span.link {
@@ -134,6 +137,9 @@ legend {
   padding: 0 10px;
   margin-bottom: 0;
   border-bottom: none;
+}
+.small-text {
+  font-size: 12px;
 }
 /**/
 .loading {

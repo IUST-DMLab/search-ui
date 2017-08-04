@@ -15,20 +15,28 @@
                 <div>
                     <span class="subtitle">{{entity.data.type}}</span>
                 </div>
+                <div>
+                    <br>
+                    <br>
+                    <a class="small-text" href="{{entity.data.wikiLink}}" target="_blank">مشاهده در ویکیپدیا</a>
+                </div>
             </td>
         </tr>
     </table>
 </div>
 <div style="padding: 5px 0;">
-    <span class="subtitle">{{entity.data.abstract}}</span> ...
+    <span class="subtitle">{{entity.data.abstract}}</span>
 </div>
 <div>
     <div ng-repeat="(key, values) in entity.data.properties" class="entity-property">
         <span class="key">{{key}}: </span>
         <span ng-repeat="item in values">
-            <a class="value" ng-if="item.url" ng-href="{{item.url}}">{{item.value}}</a>
-            <span class="value" ng-if="!item.url">{{item.value}}</span>
-            <span ng-if="!$last">،</span>
+            <img ng-if="item.image" src="{{item.url}}" style="max-width: 120px; max-height: 120px;"/>
+            <span ng-if="!item.image">
+                <a class="value" ng-if="item.url && item.url.startsWith('http://fkg.iust.ac.ir')" ng-href="{{item.url}}">{{item.value}}</a>
+                <span class="value" ng-if="!item.url && !item.url.startsWith('http://fkg.iust.ac.ir')">{{item.value}}</span>
+                <span ng-if="!$last">،</span>
+            </span>
         </span>
     </div>
 </div>
