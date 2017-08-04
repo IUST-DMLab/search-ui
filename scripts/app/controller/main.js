@@ -30,13 +30,19 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
 
                 var _entities = groups['Entity'];
 
-                RestService.getEntityData(_entities[0].link)
-                    .success(function (entity) {
-                        _entities[0].data = entity;
-                    });
+                if(_entities[0] && _entities[0].link){
+                    RestService.getEntityData(_entities[0].link)
+                        .success(function (entity) {
+                            _entities[0].data = entity;
 
-                $scope.relationalResults = relationalResults;
-                $scope.entities = _entities;
+                            $scope.relationalResults = relationalResults;
+                            $scope.entities = _entities;
+                        });
+                }
+                else {
+                    $scope.relationalResults = relationalResults;
+                    $scope.entities = _entities;
+                }
 
                 // console.log($scope.entities);
             });

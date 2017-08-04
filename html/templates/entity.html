@@ -6,7 +6,9 @@
                     <!--<div class="image-container"-->
                          <!--ng-style="entity.data.image ? {'background-image':'url(\'{{entity.data.image}}\')'} : {}"></div>-->
 
-                    <img src="{{entity.data.image}}" style="max-width: 145px; max-height: 210px;" />
+                    <img src="{{entity.data.image}}"
+                         onerror="$(this).hide()"
+                         style="max-width: 145px; max-height: 210px;" />
 
                 </div>
             </td>
