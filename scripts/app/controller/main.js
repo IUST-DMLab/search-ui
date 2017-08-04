@@ -42,14 +42,20 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
             });
     }
 
-    $scope.loadEntity = function(entity) {
+    $scope.loadEntity = function (entity) {
         RestService.getEntityData(entity.link)
             .success(function (data) {
                 entity.data = data;
             });
     };
+
 });
 
+
+function fixImage(element, entity) {
+    console.log($(element));
+    $(element).css({'background-image': 'url(\'' + entity.data.image + '\')'})
+}
 
 function getParameterByName(name, url) {
     if (!url) {

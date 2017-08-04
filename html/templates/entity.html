@@ -1,10 +1,13 @@
-<div>
+<div style="padding: 15px; background-color: #eee;">
     <table cellpadding="0" cellspacing="0" style="width: 100%;">
         <tr>
             <td>
                 <div ng-if="entity.data.image">
-                    <div class="image-container"
-                         ng-style="entity.data.image ? {'background-image':'url(\'{{entity.data.image}}\')'} : {}"></div>
+                    <!--<div class="image-container"-->
+                         <!--ng-style="entity.data.image ? {'background-image':'url(\'{{entity.data.image}}\')'} : {}"></div>-->
+
+                    <img src="{{entity.data.image}}" style="max-width: 145px; max-height: 210px;" />
+
                 </div>
             </td>
             <td style="text-align: center;">
@@ -18,20 +21,23 @@
                 <div>
                     <br>
                     <br>
-                    <a class="small-text" href="{{entity.data.wikiLink}}" target="_blank">مشاهده در ویکیپدیا</a>
+                    <a class="small-text" href="{{entity.data.wikiLink}}" target="_blank">(مشاهده در ویکیپدیا)</a>
                 </div>
             </td>
         </tr>
     </table>
 </div>
-<div style="padding: 5px 0;">
+<div style="padding: 5px 5px; line-height:200%; margin-bottom: 10px;">
     <span class="subtitle">{{entity.data.abstract}}</span>
 </div>
 <div>
     <div ng-repeat="(key, values) in entity.data.properties" class="entity-property">
         <span class="key">{{key}}: </span>
         <span ng-repeat="item in values">
-            <img ng-if="item.image" src="{{item.url}}" style="max-width: 120px; max-height: 120px;"/>
+            <img ng-if="item.image"
+                 ng-src="{{item.url || ''}}"
+                 onerror="$(this).hide()"
+                 style="max-width: 120px; max-height: 120px;"/>
             <span ng-if="!item.image">
                 <a class="value" ng-if="item.url && item.url.startsWith('http://fkg.iust.ac.ir')" ng-href="?keyword={{item.value}}">{{item.value}}</a>
                 <span class="value" ng-if="!item.url && !item.url.startsWith('http://fkg.iust.ac.ir')">{{item.value}}</span>

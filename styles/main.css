@@ -52,7 +52,7 @@ body {
   direction: rtl;
 }
 .entities {
-  background-color: #ffffeb;
+  border: solid 1px #eee;
 }
 .entity-box {
   padding: 5px;
@@ -102,6 +102,7 @@ body {
 }
 .entity-property {
   padding: 5px 5px;
+  margin-bottom: 10px;
 }
 .key {
   color: #555;
@@ -139,7 +140,7 @@ legend {
   border-bottom: none;
 }
 .small-text {
-  font-size: 12px;
+  font-size: 11px;
 }
 /**/
 .loading {
