@@ -41,7 +41,7 @@
                  onerror="$(this).hide()"
                  style="max-width: 120px; max-height: 120px;"/>
             <span ng-if="!item.image">
-                <a class="value" ng-if="item.url && item.url.startsWith('http://fkg.iust.ac.ir')" ng-href="?keyword={{item.value}}">{{item.value}}</a>
+                <a class="value" ng-if="item.url && item.url.startsWith('http://fkg.iust.ac.ir')" ng-href="#?keyword={{item.value}}">{{item.value}}</a>
                 <span class="value" ng-if="!item.url && !item.url.startsWith('http://fkg.iust.ac.ir')">{{item.value}}</span>
                 <span ng-if="!$last">،</span>
             </span>
