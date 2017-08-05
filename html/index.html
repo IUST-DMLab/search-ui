@@ -49,10 +49,13 @@
 <body ng-controller="MainController">
 <div ng-include="'templates/header.html'"></div>
 
-<div class="text-center">
+<div class="search-box">
     <form ng-submit="go()" class="form-inline">
-        <label>جستجو</label>
-        <input type="text" class="input" ng-model="filter.keyword" placeholder="" style="width: 300px;"/>
+        <label class="fontSahel fs-16x">جستجو</label>
+        <input type="text"
+               class="search"
+               ng-model="filter.keyword"
+               placeholder="عبارت مورد نظر خود را وارد نمایید"/>
     </form>
 </div>
 
