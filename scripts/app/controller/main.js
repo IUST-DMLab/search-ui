@@ -40,7 +40,7 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
                                 if (relationalResults.hasOwnProperty(key)) {
                                     let res = relationalResults[key];
                                     let count = _.sum(res.projection('photoUrls').map(x => x.length ? 1 : 0));
-                                    let mode = ((res.length * 0.58 < count) ) ? 'large' : 'abstract';
+                                    let mode = ((res.length * 0.7 < count) ) ? 'large' : 'abstract';
                                     res.mode = mode;
                                     console.log(res.length, count, (res.length / count), (res.length / count) <= 2, mode);
                                 }

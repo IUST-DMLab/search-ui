@@ -37,7 +37,7 @@ app.config(['$routeProvider',
             });
     }]);
 
-app.run(function ($rootScope, $route, $location) {
+app.run(function ($rootScope, $route, $location, $templateCache) {
     //Bind the `$locationChangeSuccess` event on the rootScope, so that we dont need to
     //bind in induvidual controllers.
 
@@ -52,6 +52,10 @@ app.run(function ($rootScope, $route, $location) {
         if ($rootScope.actualLocation === newLocation) {
             console.log('Why did you use history back?');
         }
+    });
+
+    $rootScope.$on('$viewContentLoaded', function() {
+        $templateCache.removeAll();
     });
 });
 
