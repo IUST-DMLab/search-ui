@@ -40,6 +40,8 @@
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css"/>
 
 
+    <script type="text/javascript" src="../scripts/general.js"></script>
+    <script type="text/javascript" src="../scripts/date.js"></script>
     <script type="text/javascript" src="../scripts/app/app.js"></script>
     <script type="text/javascript" src="../scripts/app/service/rest.js"></script>
     <script type="text/javascript" src="../scripts/app/controller/main.js"></script>
@@ -60,83 +62,16 @@
     </form>
 </div>
 
-<button type="button" class="btn btn-warning"
-        style="margin-top: -40px; margin-left: 10px; float: left; font-family: Sahel; font-size: 12px;"
-        ng-click="openFeedback()">فیدبک</button>
-<!--<br/>-->
-
-<script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">فیدبک</h3>
-    </div>
-    <div class="modal-body" id="modal-body">
-
-        <form name="fbForm" novalidate>
-            <table cellspacing="4" cellpadding="4" class="feedback">
-                <tr>
-                    <td class="label">نام :</td>
-                    <td class="value">
-                        <input name="name" type="text" ng-model="fb.name" required/>
-                    </td>
-                    <td>
-                        <div ng-messages="fbForm.name.$error">
-                            <span ng-message="required" class="error"
-                                  ng-show="fbForm.name.$touched">*</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label">ایمیل :</td>
-                    <td class="value">
-                        <input name="email" type="email" ng-model="fb.email" required class="ltr left"/>
-                    </td>
-                    <td>
-                        <div ng-messages="fbForm.email.$error">
-                            <span ng-message="required" class="error" ng-show="fbForm.email.$touched">*</span>
-                            <span ng-message="email" class="error" ng-show="fbForm.email.$touched">*</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label">عبارت جستجو :</td>
-                    <td class="value">
-                        <input name="query" type="text" ng-model="fb.query" required/>
-                    </td>
-                    <td>
-                        <div ng-messages="fbForm.query.$error">
-                            <span ng-message="required" class="error"
-                                  ng-show="fbForm.query.$touched">*</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label">توضیحات :</td>
-                    <td class="value">
-                        <textarea name="text" ng-model="fb.text" required ng-minlength="10"/>
-                        <div class="small-text gray">متن توضیحات باید دست‌کم ۱۰ کاراکتر باشد.</div>
-                    </td>
-                    <td>
-                        <div ng-messages="fbForm.query.$error">
-                            <span ng-message="required" class="error" ng-show="fbForm.query.$touched">*</span>
-                            <span ng-message="minlength" class="error" ng-show="fbForm.query.$touched">*</span>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" type="submit" ng-click="ok()" ng-disabled="fbForm.$invalid">تایید</button>
-        <button class="btn btn-warning" type="button" ng-click="cancel()">انصراف</button>
-    </div>
-</script>
+<button id="feedback-button" type="button" class="btn btn-warning"
+        ng-click="openFeedback()">فیدبک
+</button>
 <br/>
 
-<div ng-if="data.entities.length" class="container" id="body">
+<div ng-if="results.entities.length" class="container" id="body">
 
     <div class="row">
-        <ul class="breadcrumb" ng-if="data.breadcrumb.length">
-            <li ng-repeat="item in data.breadcrumb">{{item}}</li>
+        <ul class="breadcrumb" ng-if="results.breadcrumb.length">
+            <li ng-repeat="item in results.breadcrumb">{{item}}</li>
         </ul>
 
         <div class="col-xs-12 col-md-8">
@@ -144,9 +79,17 @@
             <div ng-repeat="(key, value) in relationalResults" style="line-height: 300%;">
                 <fieldset>
                     <legend>{{key}}</legend>
-                    <div ng-repeat="entity in value"
-                         class="entity-item"
-                         ng-include="'./templates/relational.html'"></div>
+
+                    <div ng-if="value.mode==='large'">
+                        <div ng-repeat="entity in value"
+                             ng-include="'./templates/relational.html'"></div>
+                    </div>
+
+                    <div ng-if="value.mode==='abstract'">
+                        <div ng-repeat="entity in value"
+                             ng-include="'./templates/relational-abstract.html'"></div>
+                    </div>
+
                 </fieldset>
             </div>
 
@@ -167,18 +110,16 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
 
 <br/>
-<div ng-show="data.entities.length"
+<div ng-show="results.entities.length"
      style="padding: 10px; margin-bottom: 20px; border-top: solid 1px #aaa; text-align: center">
     <a ng-click="showInfo=!showInfo;window.scrollTo(0,document.body.scrollHeight);" style="cursor: pointer;">درباره
         سیستم</a>
 </div>
-<div ng-show="!data.entities.length || showInfo" ng-include="'./templates/info.html'"
+<div ng-show="!results.entities.length || showInfo" ng-include="'./templates/info.html'"
      style="padding: 0px; margin: 10px 40px;"></div>
 
 <!--<div ng-include="'templates/footer.html'"></div>-->

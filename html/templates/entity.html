@@ -3,13 +3,9 @@
         <tr>
             <td>
                 <div ng-if="entity.data.image">
-                    <!--<div class="image-container"-->
-                         <!--ng-style="entity.data.image ? {'background-image':'url(\'{{entity.data.image}}\')'} : {}"></div>-->
-
                     <img src="{{entity.data.image}}"
                          onerror="$(this).hide()"
                          style="max-width: 145px; max-height: 210px;" />
-
                 </div>
             </td>
             <td style="text-align: center;">
@@ -18,7 +14,7 @@
                     <span ng-if="!entity.link" class="entity-title">{{entity.data.label}}</span>
                 </div>
                 <div>
-                    <span class="subtitle">{{entity.data.type}}</span>
+                    <span class="entity-subtitle">{{entity.data.type}}</span>
                 </div>
                 <div>
                     <br>
@@ -30,7 +26,7 @@
     </table>
 </div>
 <div style="padding: 5px 5px; line-height:200%; margin-bottom: 10px;">
-    <span class="subtitle">{{entity.data.abstract}}</span>
+    <span class="entity-subtitle">{{entity.data.abstract}}</span>
 </div>
 <div>
     <div ng-repeat="(key, values) in entity.data.properties" class="entity-property">

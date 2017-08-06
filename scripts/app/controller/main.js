@@ -21,11 +21,11 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
     function load(kw) {
         kw = kw || getParameterByName('keyword');
         RestService.searcher(kw)
-            .success(function (data) {
-                $scope.data = data;
+            .success(function (results) {
+                $scope.results = results;
                 $scope.filter.keyword = kw;
 
-                var groups = _.groupBy(data.entities, 'resultType');
+                var groups = _.groupBy(results.entities, 'resultType');
                 var relationalResults = _.groupBy(groups['RelationalResult'], 'description');
 
                 var _entities = groups['Entity'];
@@ -35,8 +35,21 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
                         .success(function (entity) {
                             _entities[0].data = entity;
 
+                            let cnt = 0;
+                            for (let key in relationalResults) {
+                                if (relationalResults.hasOwnProperty(key)) {
+                                    let res = relationalResults[key];
+                                    let sum = _.sum(res.projection('photoUrls').map(x => x.length ? 1 : 0));
+                                    let mode = ((res.length / sum) <= 2) ? 'large' : 'abstract';
+                                    res.mode = mode;
+                                    console.log(res.length, sum, (res.length / sum), (res.length / sum) <= 2, mode);
+                                }
+                            }
+
                             $scope.relationalResults = relationalResults;
                             $scope.entities = _entities;
+
+                            console.log($scope.relationalResults);
                         });
                 }
                 else {
@@ -61,7 +74,7 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
             animation: true,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
-            templateUrl: 'myModalContent.html',
+            templateUrl: './templates/feedback.html',
             controller: 'FeedbackCtrl',
             //controllerAs: '$ctrl',
             //size: size,
