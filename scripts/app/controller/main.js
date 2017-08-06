@@ -26,40 +26,35 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
                 $scope.filter.keyword = kw;
 
                 var groups = _.groupBy(results.entities, 'resultType');
-                var relationalResults = _.groupBy(groups['RelationalResult'], 'description');
+                var relationals = _.groupBy(groups['RelationalResult'], 'description');
+                var similarities = _.groupBy(groups['Similar'], 'description');
+                var entities = groups['Entity'];
 
-                var _entities = groups['Entity'];
+                checkMode(relationals);
+                checkMode(similarities, 'abstract');
 
-                if (_entities[0] && _entities[0].link) {
-                    RestService.getEntityData(_entities[0].link)
+                if (entities[0] && entities[0].link) {
+                    RestService.getEntityData(entities[0].link)
                         .success(function (entity) {
-                            _entities[0].data = entity;
-
-                            let cnt = 0;
-                            for (let key in relationalResults) {
-                                if (relationalResults.hasOwnProperty(key)) {
-                                    let res = relationalResults[key];
-                                    let count = _.sum(res.projection('photoUrls').map(x => x.length ? 1 : 0));
-                                    let mode = ((res.length * 0.7 < count) ) ? 'large' : 'abstract';
-                                    res.mode = mode;
-                                    console.log(res.length, count, (res.length / count), (res.length / count) <= 2, mode);
-                                }
-                            }
-
-                            $scope.relationalResults = relationalResults;
-                            $scope.entities = _entities;
-
-                            console.log($scope.relationalResults);
+                            entities[0].data = entity;
+                            update(relationals, entities, similarities);
                         });
                 }
                 else {
-                    $scope.relationalResults = relationalResults;
-                    $scope.entities = _entities;
+                    update(relationals, entities, similarities);
                 }
-
-                // console.log($scope.entities);
             });
+
+        function update(relationals, entities, similarities) {
+            $scope.relationalResults = relationals;
+            $scope.entities = entities;
+            $scope.similarities = similarities;
+            console.log(similarities);
+
+        };
+
     }
+
 
     $scope.loadEntity = function (entity) {
         RestService.getEntityData(entity.link)
@@ -93,6 +88,18 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
 
             });
     };
+
+    function checkMode(obj, m) {
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                let res = obj[key];
+                let count = _.sum(res.projection('photoUrls').map(x => x.length ? 1 : 0));
+                let mode = ((res.length * 0.7 < count) ) ? 'large' : 'abstract';
+                res.mode = m|| mode;
+                //console.log(res.length, count, (res.length / count), (res.length / count) <= 2, mode);
+            }
+        }
+    }
 
 });
 
