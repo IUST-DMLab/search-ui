@@ -124,6 +124,51 @@ app.controller('FeedbackCtrl', function ($scope, $uibModalInstance, RestService)
 });
 
 
+app.controller('ExportController', function ($scope, $location, $routeParams, RestService) {
+    $scope.filter = {};
+    $scope.data = {};
+    $scope.load = load;
+
+    var keyword = getParameterByName('keyword');
+    if (keyword) {
+        load(keyword);
+    }
+
+    function load(kw) {
+        kw = kw || getParameterByName('keyword');
+        RestService.searcher(kw)
+            .success(function (results) {
+                $scope.results = results;
+                $scope.filter.keyword = kw;
+
+                var groups = _.groupBy(results.entities, 'resultType');
+
+                var _entities = groups['Entity'];
+
+                if (_entities[0] && _entities[0].link) {
+                    RestService.getEntityData(_entities[0].link)
+                        .success(function (entity) {
+                            _entities[0].data = entity;
+
+                            $scope.entity = _entities[0];
+                        });
+                }
+                else {
+                    $scope.entity = _entities[0];
+                }
+            });
+    }
+
+
+    $scope.loadEntity = function (entity) {
+        RestService.getEntityData(entity.link)
+            .success(function (data) {
+                entity.data = data;
+            });
+    };
+});
+
+
 function fixImage(element, entity) {
     console.log($(element));
     $(element).css({'background-image': 'url(\'' + entity.data.image + '\')'})

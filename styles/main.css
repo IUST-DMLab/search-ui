@@ -125,37 +125,6 @@ body {
   padding: 5px 5px;
   margin-bottom: 10px;
 }
-/*
-.entity {
-  border: solid 1px #eee;
-  border-radius: 2px;
-  margin: 2px 0;
-  padding: 2px;
-}
-*/
-/*
-.entity-item {
-  outline: solid 1px #ddd;
-  float: right;
-  margin: 0 0 10px 20px;
-  height: 250px;
-  width: 150px;
-  .box-shadow(0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08));
-
-  overflow: hidden;
-  img {
-    width: 150px;
-    max-height: 180px;
-    max-width: 150px;
-  }
-}
-*/
-/*
-.abstract {
-  color: #888;
-  font-size: 13px;
-}
-*/
 .relational-item-large {
   float: right;
   width: 150px;
@@ -313,6 +282,9 @@ table.feedback td.value textarea {
 }
 .error {
   color: #f00;
+}
+.more {
+  padding: 0 8px;
 }
 /**/
 .loading {
