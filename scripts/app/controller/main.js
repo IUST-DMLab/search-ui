@@ -39,10 +39,10 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
                             for (let key in relationalResults) {
                                 if (relationalResults.hasOwnProperty(key)) {
                                     let res = relationalResults[key];
-                                    let sum = _.sum(res.projection('photoUrls').map(x => x.length ? 1 : 0));
-                                    let mode = ((res.length / sum) <= 2) ? 'large' : 'abstract';
+                                    let count = _.sum(res.projection('photoUrls').map(x => x.length ? 1 : 0));
+                                    let mode = ((res.length * 0.58 < count) ) ? 'large' : 'abstract';
                                     res.mode = mode;
-                                    console.log(res.length, sum, (res.length / sum), (res.length / sum) <= 2, mode);
+                                    console.log(res.length, count, (res.length / count), (res.length / count) <= 2, mode);
                                 }
                             }
 

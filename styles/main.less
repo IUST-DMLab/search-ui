@@ -116,11 +116,15 @@ body {
   outline: solid 1px #ddd;
   .box-shadow(2px 2px 5px -2px #aaa);
 
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   .relational-title {
     //color: #555;
     font-family: Sahel;
     font-size: 14px;
-    display: block;
+    display: inline-block;
     padding: 0px 5px;
   }
 
@@ -128,7 +132,7 @@ body {
     color: #888;
     font-family: Sahel;
     font-size: 12px;
-    display: block;
+    display: inline-block;
     padding: 2px 5px;
   }
 
@@ -161,11 +165,13 @@ body {
   border-radius: 2px;
   .box-shadow(2px 2px 5px -2px #aaa);
 
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   .relational-title {
-    //color: #555;
     font-family: Sahel;
     font-size: 14px;
-    //display: block;
     padding: 2px 5px;
   }
 
@@ -173,21 +179,22 @@ body {
     color: #888;
     font-family: Sahel;
     font-size: 13px;
-    //display: block;
     padding: 2px 5px;
   }
 
   .image-container {
-    float: left;
     height: 54px;
     width: 56px;
     text-align: center;
     overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
 
     img {
-      width: 56px;
-      display: block;
-      margin: auto;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
     }
   }
 }

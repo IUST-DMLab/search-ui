@@ -1,6 +1,6 @@
 <div class="relational-item-large">
     <div class="image-container">
-        <img ng-if="entity.photoUrls.length" src="{{entity.photoUrls[0]}}"/>
+        <img ng-if="entity.photoUrls.length" src="{{entity.photoUrls[0]}}" onerror="$(this).hide()"/>
         <img ng-if="!entity.photoUrls.length" src="../styles/images/no-image-slide.webp"/>
     </div>
     <a class="relational-title fix-text" ng-if="entity.link" href="{{entity.link}}">{{entity.title}}</a>
