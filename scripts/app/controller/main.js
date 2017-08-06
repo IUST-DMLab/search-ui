@@ -1,4 +1,4 @@
-app.controller('MainController', function ($scope, $location, $routeParams, RestService) {
+app.controller('MainController', function ($scope, $location, $routeParams, RestService, $uibModal) {
     $scope.filter = {};
     $scope.go = go;
     $scope.load = load;
@@ -30,7 +30,7 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
 
                 var _entities = groups['Entity'];
 
-                if(_entities[0] && _entities[0].link){
+                if (_entities[0] && _entities[0].link) {
                     RestService.getEntityData(_entities[0].link)
                         .success(function (entity) {
                             _entities[0].data = entity;
@@ -53,6 +53,59 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
             .success(function (data) {
                 entity.data = data;
             });
+    };
+
+    $scope.openFeedback = function () {
+        var parentElem = undefined;
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'myModalContent.html',
+            controller: 'FeedbackCtrl',
+            //controllerAs: '$ctrl',
+            //size: size,
+            appendTo: parentElem,
+            resolve: {
+                items: function () {
+                    //return items;
+                }
+            }
+        });
+
+        modalInstance.result
+            .then(function () {
+
+            }, function () {
+
+            });
+    };
+
+});
+
+app.controller('FeedbackCtrl', function ($scope, $uibModalInstance, RestService) {
+
+    $scope.fb = {};
+
+    // RestService.
+
+    $scope.ok = function () {
+
+        var data = {
+            "name": $scope.fb.name,
+            "email": $scope.fb.email,
+            "query": $scope.fb.query,
+            "text": $scope.fb.text
+        };
+
+        RestService.sendFeedback(data)
+            .success(function (response) {
+                $uibModalInstance.close();
+            });
+    };
+
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
     };
 
 });

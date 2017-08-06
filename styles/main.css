@@ -78,6 +78,18 @@
 body {
   direction: rtl;
 }
+.ltr {
+  direction: ltr;
+}
+.rtl {
+  direction: rtl;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
 .search-box {
   text-align: center;
   margin-top: 30px;
@@ -180,8 +192,42 @@ legend {
   margin-bottom: 0;
   border-bottom: none;
 }
+.gray {
+  color: gray;
+}
 .small-text {
   font-size: 11px;
+}
+table.feedback {
+  margin: 10px auto;
+  width: 95%;
+}
+table.feedback td {
+  padding: 5px;
+}
+table.feedback td.label {
+  color: #555555;
+  display: table-cell;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+  width: 100px;
+}
+table.feedback td.value {
+  color: #555555;
+  width: 100%;
+}
+table.feedback td.value input,
+table.feedback td.value textarea {
+  border: solid 1px #aaaaaa;
+  border-radius: 2px;
+  font-size: 14px;
+  padding: 5px 5px;
+  width: 100%;
+}
+.error {
+  color: #f00;
 }
 /**/
 .loading {

@@ -60,6 +60,11 @@ app.service('RestService', ['$http', function ($http) {
         return http(req);
     };
 
+    this.sendFeedback = function (data) {
+        var url = 'http://dmls.iust.ac.ir:8101/rest/v1/feedback/public/send';
+        return post(url, data);
+    };
+
     /**/
 
     this.searcher = function (keyword) {

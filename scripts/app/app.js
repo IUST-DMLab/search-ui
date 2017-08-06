@@ -1,4 +1,4 @@
-var app = angular.module('kgui', ['ngRoute', 'ui.bootstrap', 'ngTagsInput', 'autoCompleteModule', 'bw.paging']);
+var app = angular.module('kgui', ['ngRoute', 'ui.bootstrap', 'ngTagsInput', 'autoCompleteModule', 'bw.paging', 'ngMessages']);
 
 app.filter("translate", function (RestService) {
     var dic = {}, // DATA RECEIVED ASYNCHRONOUSLY AND CACHED HERE
