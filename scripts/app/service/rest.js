@@ -60,6 +60,15 @@ app.service('RestService', ['$http', function ($http) {
         return http(req);
     };
 
+    this.getEntityData2 = function (url) {
+        var req = {
+            method: 'GET',
+            url: 'http://dmls.iust.ac.ir:8090/entity/rest/v2/getEntityData?url=' + url
+        };
+        //console.log(req);
+        return http(req);
+    };
+
     this.sendFeedback = function (data) {
         var url = 'http://dmls.iust.ac.ir:8101/rest/v1/feedback/public/send';
         return post(url, data);
