@@ -93,6 +93,26 @@
                 </fieldset>
             </div>
 
+            <div ng-if="JSON.stringify(similarities).length-2">
+                <h4>موجودیت‌های مرتبط</h4>
+
+                <div ng-repeat="(key, value) in similarities" style="line-height: 300%;">
+                    <fieldset>
+                        <legend>{{key}}</legend>
+
+                        <div ng-if="value.mode==='large'">
+                            <div ng-repeat="entity in value"
+                                 ng-include="'./templates/relational.html'"></div>
+                        </div>
+
+                        <div ng-if="value.mode==='abstract'">
+                            <div ng-repeat="entity in value"
+                                 ng-include="'./templates/relational-abstract.html'"></div>
+                        </div>
+
+                    </fieldset>
+                </div>
+            </div>
         </div>
 
         <div class="col-xs-12 col-md-4">
@@ -111,30 +131,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-xs-12 col-md-12 col-lg-12"
-             ng-if="JSON.stringify(similarities).length-2">
-            <h4>موجودیت‌های مرتبط</h4>
-
-            <div ng-repeat="(key, value) in similarities" style="line-height: 300%;">
-                <fieldset>
-                    <legend>{{key}}</legend>
-
-                    <div ng-if="value.mode==='large'">
-                        <div ng-repeat="entity in value"
-                             ng-include="'./templates/relational.html'"></div>
-                    </div>
-
-                    <div ng-if="value.mode==='abstract'">
-                        <div ng-repeat="entity in value"
-                             ng-include="'./templates/relational-abstract.html'"></div>
-                    </div>
-
-                </fieldset>
-            </div>
-
-        </div>
-
 
     </div>
 </div>

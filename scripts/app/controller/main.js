@@ -49,9 +49,8 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
             $scope.relationalResults = relationals;
             $scope.entities = entities;
             $scope.similarities = similarities;
-            console.log(similarities);
-
-        };
+            //console.log(similarities);
+        }
 
     }
 
@@ -87,6 +86,10 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
             }, function () {
 
             });
+    };
+
+    $scope.isEmpty = function(obj){
+        return angular.equals(obj, {});
     };
 
     function checkMode(obj, m) {
