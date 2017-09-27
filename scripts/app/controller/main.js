@@ -20,6 +20,7 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
 
     function load(kw) {
         kw = kw || getParameterByName('keyword');
+        if(!kw) return;
         RestService.searcher(kw)
             .success(function (results) {
                 $scope.results = results;

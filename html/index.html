@@ -40,17 +40,17 @@
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css"/>
 
 
-    <script type="text/javascript" src="../scripts/general.js?v=13960705B"></script>
-    <script type="text/javascript" src="../scripts/date.js?v=13960705B"></script>
-    <script type="text/javascript" src="../scripts/app/app.js?v=13960705B"></script>
-    <script type="text/javascript" src="../scripts/app/service/rest.js?v=13960705B"></script>
-    <script type="text/javascript" src="../scripts/app/controller/main.js?v=13960705B"></script>
+    <script type="text/javascript" src="../scripts/general.js?v=13960705C"></script>
+    <script type="text/javascript" src="../scripts/date.js?v=13960705C"></script>
+    <script type="text/javascript" src="../scripts/app/app.js?v=13960705C"></script>
+    <script type="text/javascript" src="../scripts/app/service/rest.js?v=13960705C"></script>
+    <script type="text/javascript" src="../scripts/app/controller/main.js?v=13960705C"></script>
 
-    <link rel="stylesheet" href="../styles/main.css?v=13960705B">
+    <link rel="stylesheet" href="../styles/main.css?v=13960705C">
 </head>
 
 <body ng-controller="MainController">
-<div ng-include="'templates/header.html?v=13960705B'"></div>
+<div ng-include="'templates/header.html?v=13960705C'"></div>
 
 <div class="search-box">
     <form ng-submit="go()" class="form-inline">
@@ -82,12 +82,12 @@
 
                     <div ng-if="value.mode==='large'">
                         <div ng-repeat="entity in value"
-                             ng-include="'./templates/relational.html?v=13960705B'"></div>
+                             ng-include="'./templates/relational.html?v=13960705C'"></div>
                     </div>
 
                     <div ng-if="value.mode==='abstract'">
                         <div ng-repeat="entity in value"
-                             ng-include="'./templates/relational-abstract.html?v=13960705B'"></div>
+                             ng-include="'./templates/relational-abstract.html?v=13960705C'"></div>
                     </div>
 
                 </fieldset>
@@ -103,12 +103,12 @@
 
                         <div ng-if="value.mode==='large'">
                             <div ng-repeat="entity in value"
-                                 ng-include="'./templates/relational.html?v=13960705B'"></div>
+                                 ng-include="'./templates/relational.html?v=13960705C'"></div>
                         </div>
 
                         <div ng-if="value.mode==='abstract'">
                             <div ng-repeat="entity in value"
-                                 ng-include="'./templates/relational-abstract.html?v=13960705B'"></div>
+                                 ng-include="'./templates/relational-abstract.html?v=13960705C'"></div>
                         </div>
 
                     </fieldset>
@@ -123,8 +123,8 @@
             <div class="entities">
                 <div ng-repeat="entity in entities">
                     <div class="entity-box">
-                        <div ng-if="entity.data" ng-include="'./templates/entity.html?v=13960705B'"></div>
-                        <div ng-if="!entity.data" ng-include="'./templates/relational.html?v=13960705B'"></div>
+                        <div ng-if="entity.data" ng-include="'./templates/entity.html?v=13960705C'"></div>
+                        <div ng-if="!entity.data" ng-include="'./templates/relational.html?v=13960705C'"></div>
                         <div ng-if="!entity.data" style="clear: both;"></div>
                         <div ng-if="!entity.data">
                             <span class="link more" ng-click="loadEntity(entity)">بیشتر...</span>
@@ -138,7 +138,7 @@
     </div>
 </div>
 
-<div ng-if="!results.entities.length" class="search-no-results">
+<div ng-if="results.entities && !results.entities.length" class="search-no-results">
     جستجو نتیجه‌ای در بر نداشت!!!
 </div>
 
@@ -148,7 +148,7 @@
     <a ng-click="showInfo=!showInfo;window.scrollTo(0,document.body.scrollHeight);" style="cursor: pointer;">درباره
         سیستم</a>
 </div>
-<div ng-show="!results.entities.length || showInfo" ng-include="'./templates/info.html?v=13960705B'"
+<div ng-show="!results.entities.length || showInfo" ng-include="'./templates/info.html?v=13960705C'"
      style="padding: 0px; margin: 10px 40px;"></div>
 
 <!--<div ng-include="'templates/footer.html'"></div>-->
