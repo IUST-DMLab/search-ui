@@ -1,5 +1,4 @@
 app.service('RestService', ['$http', function ($http) {
-    var baseURl = 'http://194.225.227.161:8093';
     var self = this;
     this.ingoing = 0;
 
@@ -45,7 +44,7 @@ app.service('RestService', ['$http', function ($http) {
     this.translate = function (keyword) {
         var req = {
             method: 'GET',
-            url: 'http://194.225.227.161:8090/translator/rest/v1/node/' + keyword
+            url: mappingUrl + '/translator/rest/v1/node/' + keyword
         };
         //console.log(req);
         return http(req);
@@ -54,7 +53,7 @@ app.service('RestService', ['$http', function ($http) {
     this.getEntityData = function (url) {
         var req = {
             method: 'GET',
-            url: 'http://dmls.iust.ac.ir:8090/entity/rest/v1/getEntityData?url=' + url
+            url: mappingUrl + '/entity/rest/v1/getEntityData?url=' + url
         };
         //console.log(req);
         return http(req);
@@ -63,14 +62,14 @@ app.service('RestService', ['$http', function ($http) {
     this.getEntityData2 = function (url) {
         var req = {
             method: 'GET',
-            url: 'http://dmls.iust.ac.ir:8090/entity/rest/v2/getEntityData?url=' + url
+            url: mappingUrl + '/entity/rest/v2/getEntityData?url=' + url
         };
         //console.log(req);
         return http(req);
     };
 
     this.sendFeedback = function (data) {
-        var url = 'http://dmls.iust.ac.ir:8101/rest/v1/feedback/public/send';
+        var url = feedbackUrl + '/rest/v1/feedback/public/send';
         return post(url, data);
     };
 
