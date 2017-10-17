@@ -94,7 +94,9 @@
                 </fieldset>
             </div>
 
-            <div class="search-no-results" ng-if="isEmpty(relationalResults)">جستجو پاسخ گزاره‌ای در بر نداشت</div>
+            <div class="search-no-results"
+                 ng-if="isEmpty(relationalResults) && isEmpty(similarities)">جستجو پاسخی در بر نداشت</div>
+            <!--<div class="search-no-results" ng-if="isEmpty(relationalResults)">جستجو پاسخ گزاره‌ای در بر نداشت</div>-->
 <br>
 <br>
             <div ng-if="JSON.stringify(similarities).length-2">
@@ -117,7 +119,7 @@
                 </div>
             </div>
 
-            <div class="search-no-results" ng-if="isEmpty(similarities)">جستجو موجودیت‌های مرتبط در بر نداشت</div>
+            <!--<div class="search-no-results" ng-if="isEmpty(similarities)">جستجو موجودیت‌های مرتبط در بر نداشت</div>-->
         </div>
 
         <div class="col-xs-12 col-md-4">
