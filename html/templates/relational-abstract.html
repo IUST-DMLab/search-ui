@@ -5,4 +5,7 @@
     <div class="image-container">
         <img ng-if="entity.photoUrls.length" ng-src="{{entity.photoUrls[0]}}" onerror="$(this).hide()"/>
     </div>
+
+    <div ng-include="'templates/entity-keyValues.html'"></div>
+
 </div>

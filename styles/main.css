@@ -223,8 +223,6 @@ body {
 .relational-item-abstract {
   float: right;
   min-height: 56px;
-  max-height: 56px;
-  height: 56px;
   width: 320px;
   margin: 0 5px 10px 10px;
   border: solid 1px #ddd;
@@ -304,6 +302,9 @@ legend {
 }
 .medium-text {
   font-size: 12px;
+}
+.bold {
+  font-weight: bold;
 }
 button#feedback-button {
   margin-top: -40px;

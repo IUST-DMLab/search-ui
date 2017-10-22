@@ -6,4 +6,7 @@
     <a class="relational-title fix-text" ng-if="entity.link" href="{{entity.link}}">{{entity.title}}</a>
     <span class="relational-title fix-text" ng-if="!entity.link">{{entity.title}}</span>
     <span class="relational-subtitle fix-text">{{entity.subtitle}}</span>
+
+    <div ng-include="'templates/entity-keyValues.html'"></div>
+
 </div>

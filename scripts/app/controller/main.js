@@ -134,7 +134,6 @@ app.controller('FeedbackCtrl', function ($scope, $uibModalInstance, RestService)
 
 });
 
-
 app.controller('ExportController', function ($scope, $location, $routeParams, RestService) {
     $scope.filter = {};
     $scope.data = {};

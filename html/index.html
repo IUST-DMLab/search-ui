@@ -96,9 +96,8 @@
 
             <div class="search-no-results"
                  ng-if="isEmpty(relationalResults) && isEmpty(similarities)">جستجو پاسخی در بر نداشت</div>
-            <!--<div class="search-no-results" ng-if="isEmpty(relationalResults)">جستجو پاسخ گزاره‌ای در بر نداشت</div>-->
-<br>
-<br>
+
+            <br><br>
             <div ng-if="JSON.stringify(similarities).length-2">
                 <h4>موجودیت‌های مرتبط</h4>
                 <div ng-repeat="(key, value) in similarities" style="line-height: 300%;">
