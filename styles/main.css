@@ -260,6 +260,35 @@ body {
   height: 100%;
   width: 100%;
 }
+.relational-item-abstract-image {
+  float: right;
+  min-height: 156px;
+  min-width: 158px;
+  margin: 0 5px 10px 10px;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 5px -2px #aaa;
+  -moz-box-shadow: 2px 2px 5px -2px #aaa;
+  -o-box-shadow: 2px 2px 5px -2px #aaa;
+  box-shadow: 2px 2px 5px -2px #aaa;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.relational-item-abstract-image .image-container {
+  height: 154px;
+  width: 156px;
+  text-align: center;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.relational-item-abstract-image .image-container img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
 .key {
   color: #555;
   font-size: 13px;

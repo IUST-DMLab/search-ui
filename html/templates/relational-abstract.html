@@ -1,9 +1,10 @@
-<div class="relational-item-abstract">
-
+<div class="relational-item-abstract"
+    ng-if="!entity.link || !entity.link.contains('upload.wikimedia.org')">
     <a class="relational-title fix-text"
        ng-if="entity.link && !entity.link.contains('upload.wikimedia.org')"
        href="{{entity.link}}">{{entity.title}}</a>
-    <span class="relational-title fix-text" ng-if="!entity.link">{{entity.title}}</span>
+    <span class="relational-title fix-text"
+          ng-if="!entity.link">{{entity.title}}</span>
 
     <span class="relational-subtitle fix-text">{{entity.subtitle}}</span>
 
@@ -11,11 +12,12 @@
         <img ng-if="entity.photoUrls.length" ng-src="{{entity.photoUrls[0]}}" onerror="$(this).hide()"/>
     </div>
 
-    <div class="image-container"
-         ng-if="entity.link && !entity.link.contains('upload.wikimedia.org')">
+    <div ng-include="'templates/entity-keyValues.html'"></div>
+</div>
+
+<div class="relational-item-abstract-image"
+     ng-if="entity.link && entity.link.contains('upload.wikimedia.org')">
+    <div class="image-container">
         <img ng-src="{{entity.link}}" onerror="$(this).hide()"/>
     </div>
-
-    <div ng-include="'templates/entity-keyValues.html'"></div>
-
 </div>

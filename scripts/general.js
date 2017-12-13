@@ -123,6 +123,11 @@ if (!String.prototype.replaceAt)
         return this.substr(0, index) + character + this.substr(index + character.length);
     };
 
+if (!String.prototype.contains)
+    String.prototype.contains = function (str) {
+        return this.indexOf(str) > -1;
+    };
+
 /* ARRAY */
 
 if (!Array.prototype.remove)
