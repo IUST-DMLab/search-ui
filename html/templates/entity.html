@@ -51,7 +51,7 @@
                 <span ng-if="isEmpty(item.moreInfo) && !$last">،</span>
                 <div ng-if="!isEmpty(item.moreInfo)" style="border-bottom: solid 1px #ddd;">
                     <div ng-repeat="(moreKey, moreItem) in item.moreInfo" style="margin-bottom: 10px;">
-                        <span class="medium-text">{{moreKey}}</span><span style="color: #888;" class="medium-text">   {{moreItem.value.value}}</span>
+                        <span class="medium-text">{{moreKey}}</span><span style="color: #888;" class="medium-text"> :  {{moreItem.value.value}}</span>
                         <br ng-if="$last"/>
                         <span ng-if="!$last"> </span>
                     </div>

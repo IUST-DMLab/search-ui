@@ -1,11 +1,14 @@
-.scroll1::-webkit-scrollbar {
+.scroll1::-webkit-scrollbar,
+.relational-item-abstract-container .key-value-container::-webkit-scrollbar {
   width: 5px;
 }
-.scroll1::-webkit-scrollbar-track {
+.scroll1::-webkit-scrollbar-track,
+.relational-item-abstract-container .key-value-container::-webkit-scrollbar-track {
   background: #ddd;
 }
-.scroll1::-webkit-scrollbar-thumb {
-  background: #666;
+.scroll1::-webkit-scrollbar-thumb,
+.relational-item-abstract-container .key-value-container::-webkit-scrollbar-thumb {
+  background: #bbb;
 }
 .scroll2::-webkit-scrollbar {
   width: 5px;
@@ -220,8 +223,10 @@ body {
   height: 100%;
   width: 100%;
 }
-.relational-item-abstract {
+.relational-item-abstract-container {
   float: right;
+}
+.relational-item-abstract-container .relational-item-abstract {
   min-height: 56px;
   width: 320px;
   margin: 0 5px 10px 10px;
@@ -235,18 +240,18 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.relational-item-abstract .relational-title {
+.relational-item-abstract-container .relational-item-abstract .relational-title {
   font-family: Sahel;
   font-size: 14px;
   padding: 2px 5px;
 }
-.relational-item-abstract .relational-subtitle {
+.relational-item-abstract-container .relational-item-abstract .relational-subtitle {
   color: #888;
   font-family: Sahel;
   font-size: 13px;
   padding: 2px 5px;
 }
-.relational-item-abstract .image-container {
+.relational-item-abstract-container .relational-item-abstract .image-container {
   height: 54px;
   width: 56px;
   text-align: center;
@@ -255,13 +260,12 @@ body {
   left: 0;
   top: 0;
 }
-.relational-item-abstract .image-container img {
+.relational-item-abstract-container .relational-item-abstract .image-container img {
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
-.relational-item-abstract-image {
-  float: right;
+.relational-item-abstract-container .relational-item-abstract-image {
   min-height: 156px;
   min-width: 158px;
   margin: 0 5px 10px 10px;
@@ -275,7 +279,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.relational-item-abstract-image .image-container {
+.relational-item-abstract-container .relational-item-abstract-image .image-container {
   height: 154px;
   width: 156px;
   text-align: center;
@@ -284,10 +288,20 @@ body {
   left: 0;
   top: 0;
 }
-.relational-item-abstract-image .image-container img {
+.relational-item-abstract-container .relational-item-abstract-image .image-container img {
   object-fit: contain;
   height: 100%;
   width: 100%;
+}
+.relational-item-abstract-container .key-value-container {
+  padding: 2px 5px;
+  border-top: solid 1px #eee;
+  max-height: 160px;
+  overflow-y: scroll;
+}
+.relational-item-abstract-container .key-value-container .key-value-item {
+  display: flex;
+  vertical-align: middle;
 }
 .key {
   color: #555;

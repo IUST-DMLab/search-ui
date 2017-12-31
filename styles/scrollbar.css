@@ -5,7 +5,7 @@
   background: #ddd;
 }
 .scroll1::-webkit-scrollbar-thumb {
-  background: #666;
+  background: #bbb;
 }
 .scroll2::-webkit-scrollbar {
   width: 5px;

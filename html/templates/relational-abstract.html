@@ -1,18 +1,29 @@
-<div class="relational-item-abstract"
-    ng-if="!entity.link || !entity.link.contains('upload.wikimedia.org')">
-    <a class="relational-title fix-text"
-       ng-if="entity.link && !entity.link.contains('upload.wikimedia.org')"
-       href="{{entity.link}}">{{entity.title}}</a>
-    <span class="relational-title fix-text"
-          ng-if="!entity.link">{{entity.title}}</span>
+<div ng-if="!entity.link || !entity.link.contains('upload.wikimedia.org')"
+     class="relational-item-abstract">
 
-    <span class="relational-subtitle fix-text">{{entity.subtitle}}</span>
+    <div class="text-container">
+        <a ng-if="entity.link && !entity.link.contains('upload.wikimedia.org')"
+           class="relational-title fix-text"
+           href="{{entity.link}}">{{entity.title}}</a>
 
-    <div class="image-container">
-        <img ng-if="entity.photoUrls.length" ng-src="{{entity.photoUrls[0]}}" onerror="$(this).hide()"/>
+        <span ng-if="!entity.link"
+              class="relational-title fix-text">{{entity.title}}</span>
+
+        <span ng-if="entity.subtitle"
+              class="relational-subtitle fix-text">{{entity.subtitle}}</span>
     </div>
 
-    <div ng-include="'templates/entity-keyValues.html'"></div>
+    <div class="image-container">
+        <img ng-if="entity.photoUrls.length"
+             ng-src="{{entity.photoUrls[0]}}"
+             onerror="$(this).hide()"/>
+    </div>
+
+
+    <div ng-if="!isEmpty(entity.keyValues)"
+         class="key-value-container"
+         ng-include="'templates/entity-keyValues.html'">
+    </div>
 </div>
 
 <div class="relational-item-abstract-image"
