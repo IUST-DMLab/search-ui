@@ -34,7 +34,7 @@ app.controller('MainController', function ($scope, $location, $routeParams, Rest
                 checkMode(relationals);
                 checkMode(similarities, 'abstract');
 
-                if (entities[0] && entities[0].link) {
+                if (entities && entities[0] && entities[0].link) {
                     RestService.getEntityData2(entities[0].link)
                         .success(function (entity) {
                             entities[0].data = entity;

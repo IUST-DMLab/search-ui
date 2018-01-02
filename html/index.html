@@ -40,18 +40,18 @@
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css"/>
 
 
-    <script type="text/javascript" src="../scripts/general.js?v=1391010A"></script>
-    <script type="text/javascript" src="../scripts/date.js?v=1391010A"></script>
-    <script type="text/javascript" src="../scripts/app/config.js?v=1391010A"></script>
-    <script type="text/javascript" src="../scripts/app/app.js?v=1391010A"></script>
-    <script type="text/javascript" src="../scripts/app/service/rest.js?v=1391010A"></script>
-    <script type="text/javascript" src="../scripts/app/controller/main.js?v=1391010A"></script>
+    <script type="text/javascript" src="../scripts/general.js?v=1391011"></script>
+    <script type="text/javascript" src="../scripts/date.js?v=1391011"></script>
+    <script type="text/javascript" src="../scripts/app/config.js?v=1391011"></script>
+    <script type="text/javascript" src="../scripts/app/app.js?v=1391011"></script>
+    <script type="text/javascript" src="../scripts/app/service/rest.js?v=1391011"></script>
+    <script type="text/javascript" src="../scripts/app/controller/main.js?v=1391011"></script>
 
-    <link rel="stylesheet" href="../styles/main.css?v=1391010A">
+    <link rel="stylesheet" href="../styles/main.css?v=1391011">
 </head>
 
 <body ng-controller="MainController">
-<div ng-include="'templates/header.html?v=1391010A'"></div>
+<div ng-include="'templates/header.html?v=1391011'"></div>
 
 <div class="search-box">
     <form ng-submit="go()" class="form-inline">
@@ -83,20 +83,20 @@
 
                     <div ng-if="value.mode==='large'">
                         <div ng-repeat="entity in value"
-                             ng-include="'./templates/relational.html?v=1391010A'"></div>
+                             ng-include="'./templates/relational.html?v=1391011'"></div>
                     </div>
 
                     <div ng-if="value.mode==='abstract'">
                         <div ng-repeat="entity in value"
                              class="relational-item-abstract-container"
-                             ng-include="'./templates/relational-abstract.html?v=1391010A'"></div>
+                             ng-include="'./templates/relational-abstract.html?v=1391011'"></div>
                     </div>
 
                 </fieldset>
             </div>
 
             <div class="search-no-results"
-                 ng-if="isEmpty(relationalResults) && isEmpty(similarities)">جستجو پاسخی در بر نداشت</div>
+                 ng-if="isEmpty(relationalResults) && isEmpty(similarities) && isEmpty(entities)">جستجو پاسخی در بر نداشت</div>
 
             <br><br>
             <div ng-if="JSON.stringify(similarities).length-2">
@@ -107,13 +107,13 @@
 
                         <div ng-if="value.mode==='large'">
                             <div ng-repeat="entity in value"
-                                 ng-include="'./templates/relational.html?v=1391010A'"></div>
+                                 ng-include="'./templates/relational.html?v=1391011'"></div>
                         </div>
 
                         <div ng-if="value.mode==='abstract'">
                             <div ng-repeat="entity in value"
                                  class="relational-item-abstract-container"
-                                 ng-include="'./templates/relational-abstract.html?v=1391010A'"></div>
+                                 ng-include="'./templates/relational-abstract.html?v=1391011'"></div>
                         </div>
 
                     </fieldset>
@@ -128,8 +128,8 @@
             <div class="entities">
                 <div ng-repeat="entity in entities">
                     <div class="entity-box">
-                        <div ng-if="entity.data" ng-include="'./templates/entity.html?v=1391010A'"></div>
-                        <div ng-if="!entity.data" ng-include="'./templates/relational.html?v=1391010A'"></div>
+                        <div ng-if="entity.data" ng-include="'./templates/entity.html?v=1391011'"></div>
+                        <div ng-if="!entity.data" ng-include="'./templates/relational.html?v=1391011'"></div>
                         <div ng-if="!entity.data" style="clear: both;"></div>
                         <div ng-if="!entity.data">
                             <span class="link more" ng-click="loadEntity(entity)">بیشتر...</span>
@@ -153,7 +153,7 @@
     <a ng-click="showInfo=!showInfo;window.scrollTo(0,document.body.scrollHeight);" style="cursor: pointer;">درباره
         سیستم</a>
 </div>
-<div ng-show="!results.entities.length || showInfo" ng-include="'./templates/info.html?v=1391010A'"
+<div ng-show="!results.entities.length || showInfo" ng-include="'./templates/info.html?v=1391011'"
      style="padding: 0px; margin: 10px 40px;"></div>
 
 <!--<div ng-include="'templates/footer.html'"></div>-->
